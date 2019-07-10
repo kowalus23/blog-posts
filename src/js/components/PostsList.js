@@ -1,8 +1,9 @@
 import _ from 'lodash'
 import React from 'react';
 import '../../style/components/App.css';
-import { connect} from "react-redux";
-import { fetchPosts} from "../actions";
+import {connect} from "react-redux";
+import {Link} from "react-router-dom";
+import {fetchPosts} from "../actions";
 
 class PostList extends React.Component {
   componentDidMount() {
@@ -20,10 +21,14 @@ class PostList extends React.Component {
   };
 
   render() {
-    console.log(this.props.posts)
     return (
       <React.Fragment>
         <h3>Posts</h3>
+        <div className="text-right">
+          <Link to={'/posts/new'} className="btn btn-primary">
+            Add a Post
+          </Link>
+        </div>
         <ul className="list-group">
           {this.renderPosts()}
         </ul>
@@ -33,7 +38,7 @@ class PostList extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { posts: state.posts}
+  return {posts: state.posts}
 };
 
 export default connect(mapStateToProps, {fetchPosts})(PostList);
