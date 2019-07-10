@@ -1,9 +1,13 @@
 import React from 'react';
 import {Field, reduxForm} from 'redux-form'
+import {Link} from "react-router-dom";
+import {connect} from "react-redux";
+import {createPost} from "../actions";
 
 class PostNew extends React.Component {
   renderField = ({input, label, meta}) => {
     const {touched, error} = meta;
+    const className = `form-control ${touched && error ? 'is-invalid' : ''}`;
 
     const displayError = (touched, error) => {
       return touched && error
@@ -18,7 +22,7 @@ class PostNew extends React.Component {
       return (
         <div className="form-group">
           <label>{label}</label>
-          <input className="form-control"  {...input} autoComplete={'off'}/>
+          <input className={className}  {...input} autoComplete={'off'}/>
           {displayError(touched, error)}
         </div>
       )
@@ -26,7 +30,7 @@ class PostNew extends React.Component {
       return (
         <div className="form-group">
           <label>Content</label>
-          <textarea {...input} className="form-control" rows="3"/>
+          <textarea {...input} className={className} rows="3"/>
           {displayError(touched, error)}
         </div>
       )
@@ -34,7 +38,7 @@ class PostNew extends React.Component {
   };
 
   onSubmit = (values) => {
-    console.log(values)
+    this.props.createPost(values)
   };
 
   render() {
@@ -54,7 +58,8 @@ class PostNew extends React.Component {
           name="content"
           component={this.renderField}
         />
-        <button onClick={this.onSubmit} type="submit" className="btn btn-primary">Submit</button>
+        <button type="submit" className="btn btn-primary">Submit</button>
+        <Link className="btn btn-danger ml-3" to={'/'}>Cancel</Link>
       </form>
     );
   }
@@ -79,4 +84,6 @@ const validate = (values) => {
 export default reduxForm({
   validate,
   form: 'PostNewForm'
-})(PostNew);
+})(
+  connect(null, {createPost})(PostNew)
+);
