@@ -4,28 +4,34 @@ import {fetchPost} from "../actions";
 
 class PostsShow extends React.Component {
   componentDidMount() {
-    const {id} = this.props.match.params.id;
+    const {id} = this.props.match.params;
     this.props.fetchPost(id);
   }
 
-  renderPost = ({title, category, content}) => {
-
+  renderPost = ({title, categories, content}) => {
     return (
-      <div className="card">
+      <div className="card text-center mt-5">
         <div className="card-header">
           {title}
         </div>
         <div className="card-body">
-          <blockquote className="blockquote mb-0">
-            <p>{content}</p>
-            <footer className="blockquote-footer">{category}<cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <p className="card-text">{content}</p>
+        </div>
+        <div className="card-footer text-muted">
+          {categories}
         </div>
       </div>
     )
   };
 
   render() {
+    if (!this.props.post) {
+      return (
+        <div className="d-flex justify-content-center align-items-center h-100">
+          <div className="loader"/>
+        </div>
+      )
+    }
     return (
       <div>
         {this.renderPost(this.props.post)}
