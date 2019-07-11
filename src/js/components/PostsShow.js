@@ -1,30 +1,40 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {fetchPost} from "../actions";
+import {Link} from "react-router-dom";
 
 class PostsShow extends React.Component {
   componentDidMount() {
-    const {id} = this.props.match.params;
-    this.props.fetchPost(id);
+    if (!this.props.post) {
+      const {id} = this.props.match.params;
+      this.props.fetchPost(id);
+    }
   }
+
+  onDeleteClick = () => {
+    const {id} = this.props.match.params;
+    this.props.deletePost(id);
+  };
 
   renderPost = ({title, categories, content}) => {
     return (
-      <div className="card text-center mt-5">
-        <div className="card-header">
-          {title}
+      <div className="card mt-3">
+        <div className="card-header text-center">
+          <h3 className="m-0">{title}</h3>
         </div>
         <div className="card-body">
           <p className="card-text">{content}</p>
         </div>
-        <div className="card-footer text-muted">
-          {categories}
+        <div className="card-footer text-muted d-flex justify-content-between align-items-center">
+          <div><span className="span-text-custom">Category:</span> {categories}</div>
+          <button onClick={this.onDeleteClick} className="btn btn-danger">Delete</button>
         </div>
       </div>
     )
   };
 
   render() {
+    const arrow = '<---';
     if (!this.props.post) {
       return (
         <div className="d-flex justify-content-center align-items-center h-100">
@@ -33,7 +43,10 @@ class PostsShow extends React.Component {
       )
     }
     return (
-      <div>
+      <div className="pt-3">
+        <div>
+          <Link className="arrow-back-main" to={'/'}><span className="arrow-back">{arrow}</span>Back to list </Link>
+        </div>
         {this.renderPost(this.props.post)}
       </div>
     );

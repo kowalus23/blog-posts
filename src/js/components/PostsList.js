@@ -13,9 +13,11 @@ class PostList extends React.Component {
   renderPosts = () => {
     return _.map(this.props.posts, post => {
       return (
-        <li className="list-group-item" key={post.id}>
-          <Link to={`/posts/${post.id}`}>{post.title}</Link>
-        </li>
+        <Link className="list-group-item custom" to={`/posts/${post.id}`}>
+          <li key={post.id}>
+            {post.title}
+          </li>
+        </Link>
       )
     })
   };
@@ -23,8 +25,8 @@ class PostList extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h3>Posts</h3>
-        <div className="text-right">
+        <div className="row justify-content-between p-3">
+          <h3>Posts List</h3>
           <Link to={'/posts/new'} className="btn btn-primary">
             Add a Post
           </Link>
