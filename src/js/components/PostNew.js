@@ -40,7 +40,7 @@ class PostNew extends React.Component {
     return (
       <div>
         <h3 className="py-3 m-0">Create Post</h3>
-        <card className="card p-4">
+        <div className="card p-4">
           <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
             <Field label="Title" name="title" component={this.renderField}/>
             <Field label="Category" name="categories" component={this.renderField}/>
@@ -48,7 +48,7 @@ class PostNew extends React.Component {
             <button type="submit" className="btn btn-primary">Submit</button>
             <Link className="btn btn-danger ml-3" to={'/'}>Cancel</Link>
           </form>
-        </card>
+        </div>
       </div>
     );
   }
