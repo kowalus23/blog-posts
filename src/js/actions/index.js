@@ -28,8 +28,19 @@ export const createPost = (values) => async (dispatch) => {
 export const fetchPost = (id) => async (dispatch) => {
   const response = await posts.get(`/posts/${id}${API_KEY}`);
 
-  dispatch ({
+  dispatch({
     type: FETCH_POST,
     payload: response.data
   })
+};
+
+export const deletePost = (id) => async (dispatch) => {
+  const response = await posts.delete(`/posts/${id}${API_KEY}`);
+
+  dispatch({
+    type: FETCH_POST,
+    payload: response.data
+  });
+
+  history.push('/')
 };

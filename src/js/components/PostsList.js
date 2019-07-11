@@ -13,8 +13,8 @@ class PostList extends React.Component {
   renderPosts = () => {
     return _.map(this.props.posts, post => {
       return (
-        <Link className="list-group-item custom" to={`/posts/${post.id}`}>
-          <li key={post.id}>
+        <Link key={post.id} className="list-group-item custom" to={`/posts/${post.id}`}>
+          <li>
             {post.title}
           </li>
         </Link>
