@@ -45,7 +45,7 @@ class PostsShow extends React.Component {
     return (
       <div className="pt-3">
         <div>
-          <Link className="arrow-back-main" to={'/'}><span className="arrow-back">{arrow}</span>Back to list </Link>
+          <Link className="arrow-back-main py-2" to={'/'}><span className="arrow-back">{arrow}</span>Back to list </Link>
         </div>
         {this.renderPost(this.props.post)}
       </div>
