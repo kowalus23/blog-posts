@@ -30,7 +30,7 @@ class PostNew extends React.Component {
       return (
         <div className="form-group">
           <label>Content</label>
-          <textarea {...input} className={className} rows="3"/>
+          <textarea {...input} className={className} rows="5"/>
           {displayError(touched, error)}
         </div>
       )
@@ -43,24 +43,29 @@ class PostNew extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
-        <Field
-          label="Title"
-          name="title"
-          component={this.renderField}
-        />
-        <Field
-          label="Category"
-          name="categories"
-          component={this.renderField}
-        />
-        <Field
-          name="content"
-          component={this.renderField}
-        />
-        <button type="submit" className="btn btn-primary">Submit</button>
-        <Link className="btn btn-danger ml-3" to={'/'}>Cancel</Link>
-      </form>
+      <div>
+        <h3 className="py-3 m-0">Create Post</h3>
+        <card className="card p-3">
+          <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
+            <Field
+              label="Title"
+              name="title"
+              component={this.renderField}
+            />
+            <Field
+              label="Category"
+              name="categories"
+              component={this.renderField}
+            />
+            <Field
+              name="content"
+              component={this.renderField}
+            />
+            <button type="submit" className="btn btn-primary">Submit</button>
+            <Link className="btn btn-danger ml-3" to={'/'}>Cancel</Link>
+          </form>
+        </card>
+      </div>
     );
   }
 }
