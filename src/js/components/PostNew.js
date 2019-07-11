@@ -19,15 +19,13 @@ class PostNew extends React.Component {
     return (
       <div className="form-group">
         <label>{label}</label>
-        {
-          label !== 'Content'
-            ? <input className={className}  {...input} autoComplete={'off'}/>
-            : <textarea {...input} className={className} rows="5"/>
+        {label !== 'Content'
+          ? <input className={className} {...input} autoComplete={'off'}/>
+          : <textarea {...input} className={className} rows="5"/>
         }
-        {
-          touched && error
-            ? <small className="text-danger">{error}</small>
-            : null
+        {touched && error
+          ? <small className="text-danger">{error}</small>
+          : null
         }
       </div>
     )
@@ -42,7 +40,7 @@ class PostNew extends React.Component {
     return (
       <div>
         <h3 className="py-3 m-0">Create Post</h3>
-        <card className="card p-3">
+        <card className="card p-4">
           <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
             <Field label="Title" name="title" component={this.renderField}/>
             <Field label="Category" name="categories" component={this.renderField}/>
