@@ -13,7 +13,9 @@ class PostsShow extends React.Component {
 
   onDeleteClick = () => {
     const {id} = this.props.match.params;
-    this.props.deletePost(id);
+    this.props.deletePost(id).then(() => {
+      this.props.history.push('/')
+    })
   };
 
   renderPost = ({title, categories, content}) => {

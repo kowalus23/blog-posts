@@ -55,7 +55,6 @@
     transition: all ease-in-out 500ms;
 }
 
-
 .arrow-back-main:hover .arrow-back, .arrow-back-main:focus .arrow-back {
     color: tomato;
     letter-spacing: 5px;

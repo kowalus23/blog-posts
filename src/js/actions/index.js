@@ -1,6 +1,5 @@
 import posts from '../apis/posts'
 import {CREATE_POST, FETCH_POSTS, FETCH_POST} from "./types";
-import history from '../history'
 
 const API_KEY = '?key=HOUSTONWEGOTAPROBLEM12345';
 
@@ -21,8 +20,6 @@ export const createPost = (values) => async (dispatch) => {
     type: CREATE_POST,
     payload: response.data
   });
-
-  history.push('/')
 };
 
 export const fetchPost = (id) => async (dispatch) => {
@@ -41,6 +38,4 @@ export const deletePost = (id) => async (dispatch) => {
     type: FETCH_POST,
     payload: response.data
   });
-
-  history.push('/')
 };
