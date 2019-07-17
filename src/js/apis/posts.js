@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export default axios.create({
-  baseURL: 'http://reduxblog.herokuapp.com/api'
+  baseURL: 'https://reduxblog.herokuapp.com/api'
 })
