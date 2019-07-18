@@ -33,6 +33,11 @@ class PostList extends React.Component {
         </div>
         <ul className="list-group">
           {this.renderPosts()}
+          <Link key="123456" className="list-group-item custom" to={`/test`}>
+            <li>
+              Lorem ipsum dolor sit amet. (Offline test)
+            </li>
+          </Link>
         </ul>
       </React.Fragment>
     );
