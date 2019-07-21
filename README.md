@@ -1,3 +1,5 @@
+LIVE VIEW - https://kowalus23.github.io/blog-posts/
+
 This is another my simple and small app to let's say master React :D, this time we'll have a typical list with blogs, that contain name, description, content + tags or additional info, that you can search through them. Also you can ADD/SHOW/DELETE posts - typical CRUD with REST api, based on HEROKU api = without EDIT opt.
 
 ## Available Scripts
