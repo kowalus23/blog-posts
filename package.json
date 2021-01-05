@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "http://kowalus23.github.io/blog-posts",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "lodash": "^4.17.13",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
