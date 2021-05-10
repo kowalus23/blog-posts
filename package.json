@@ -5,7 +5,7 @@
   "homepage": "http://kowalus23.github.io/blog-posts",
   "dependencies": {
     "axios": "^0.19.0",
-    "lodash": "^4.17.13",
+    "lodash": "^4.17.21",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
